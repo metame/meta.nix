@@ -1,10 +1,13 @@
 { inputs, pkgs, ... }:
 
+# manage emacs packages with nix
+# port zsh config to nix using pattern in dillon's files
+# https://github.com/dmmulroy/kickstart.nix/blob/main/module/home-manager.nix#L136-L160
 {
   # add home-manager user settings here
-  # generic: tmux, emacs, git, tree, alacritty, ffmpeg, zsh, jq
+  # generic: zsh, 
   # work: awscli, mysql, docker
-  home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [ ack curl ffmpeg jq tree ];
   home.stateVersion = "23.11";
   nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 
@@ -13,6 +16,7 @@
       enable = true;
     };
     emacs = {
+      # still need to manage packages with nix
       enable = true;
       package = pkgs.emacs.override {
         withTreeSitter = true;
@@ -42,7 +46,7 @@
       extraConfig = {
         init = { defaultBranch = "main"; };
         push = { autoSetupRemote = true; };
-        rerere = {enabled = true; };
+        rerere = { enabled = true; };
       };
     };
     neovim = {
@@ -62,6 +66,12 @@
         nvim-treesitter
         nvim-treesitter-parsers.haskell
       ];
+    };
+    starship = {
+      enable = true;
+      settings = {
+        aws.disabled = true;
+      };
     };
     tmux = {
       enable = true;
