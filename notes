@@ -1,0 +1,6 @@
+darwin-rebuild makes changes to system
+importing existing config:
+builtins.readFile the existing file
+home.file.".config/nvim/after/ftplugin/markdown.vim".text = ''
+    setlocal wrap
+  '';
