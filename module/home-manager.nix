@@ -79,7 +79,8 @@
     };
     zsh = {
       enable = true;
-      enableAutosuggestions = true;
+      # disabling for now as it takes zsh history (aka could leak work stuff)
+      # enableAutosuggestions = true;
       enableCompletion = true;
       initExtra = "${builtins.readFile ../config/zsh/config.zsh}";
     };
