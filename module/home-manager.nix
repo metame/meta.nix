@@ -77,5 +77,11 @@
       enable = true;
       mouse = true;
     };
+    zsh = {
+      enable = true;
+      enableAutosuggestions = true;
+      enableCompletion = true;
+      initExtra = "${builtins.readFile ../config/zsh/config.zsh}";
+    };
   };
 }
