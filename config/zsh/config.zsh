@@ -66,7 +66,7 @@ export PATH=$PATH:/Users/me/oss/zig-macos-x86_64-0.12.0-dev.1396+f6de3ec96/
 export PATH=$PATH:/Applications/Racket\ v8.10/bin/
 
 # sml
-PATH=$PATH:/usr/local/smlnj/bin/
+export PATH=$PATH:/usr/local/smlnj/bin/
 
 # haskell
 [ -f "/Users/me/.ghcup/env" ] && source "/Users/me/.ghcup/env" # ghcup-env
@@ -83,3 +83,5 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # twitch
 TWITCH_OAUTH='https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=v1biw1x2lzo3o4b0gqqfplm4tmorsf&redirect_uri=http://localhost:3000&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls+channel%3Abot+chat%3Aedit+chat%3Aread'
+
+export EDITOR=vi
