@@ -72,7 +72,7 @@ export PATH=$PATH:/usr/local/smlnj/bin/
 [ -f "/Users/me/.ghcup/env" ] && source "/Users/me/.ghcup/env" # ghcup-env
 
 # ocaml
-[[ ! -r /Users/me/.opam/opam-init/init.zsh ]] || source /Users/me/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+## [[ ! -r /Users/me/.opam/opam-init/init.zsh ]] || source /Users/me/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # bun completions
 [ -s "/Users/me/.bun/_bun" ] && source "/Users/me/.bun/_bun"

@@ -15,6 +15,10 @@
     alacritty = {
       enable = true;
     };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
     emacs = {
       # still need to manage packages with nix
       enable = true;
