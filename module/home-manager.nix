@@ -7,7 +7,7 @@
   # add home-manager user settings here
   # generic: zsh, 
   # work: awscli, mysql, docker
-  home.packages = with pkgs; [ ack curl ffmpeg jq tree ];
+  home.packages = with pkgs; [ ack curl ffmpeg ttyd vhs jq tree ];
   home.stateVersion = "23.11";
   nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 
