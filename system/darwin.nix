@@ -19,9 +19,9 @@ inputs.darwin.lib.darwinSystem {
     inputs.home-manager.darwinModules.home-manager
     {
       # add home-manager settings here
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.users."${username}" = { _module.args = { inherit inputs; }; imports = [ ../module/home-manager.nix ]; };
+      # home-manager.useGlobalPkgs = true;
+       home-manager.useUserPackages = true;
+      home-manager.users."${username}" = { _module.args = { inherit inputs ; }; imports = [ ../module/home-manager.nix ]; };
     }
     # add more nix modules here
   ];

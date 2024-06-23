@@ -8,8 +8,8 @@
     home-manager.url = "github:nix-community/home-manager";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    # emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
-
   outputs = inputs@{ self, darwin, home-manager, nixpkgs, ... }:
     let
       username = "me";

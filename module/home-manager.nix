@@ -7,9 +7,14 @@
   # add home-manager user settings here
   # generic: zsh, 
   # work: awscli, mysql, docker
-  home.packages = with pkgs; [ ack curl ffmpeg ttyd vhs jq tree ];
+  imports = [
+    ./emacs.nix
+  ];
+
+  # home.packages = with pkgs; [ ack curl ffmpeg ttyd vhs jq tree ];
+  home.packages = with pkgs; [ ack curl ttyd jq tree ];
   home.stateVersion = "23.11";
-  nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
+  nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ];
 
   programs = {
     alacritty = {
@@ -18,14 +23,6 @@
     direnv = {
       enable = true;
       nix-direnv.enable = true;
-    };
-    emacs = {
-      # still need to manage packages with nix
-      enable = true;
-      package = pkgs.emacs.override {
-        withTreeSitter = true;
-        withNativeCompilation = true;
-      };
     };
     git = {
       enable = true;
