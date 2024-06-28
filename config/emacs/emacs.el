@@ -1,3 +1,7 @@
+;; considerations for improvements:
+;; crux for better "beginning of line" functionality, essentially <0-w>
+;; frame title format
+
 (setq debug-on-error t)
 (setq comp-async-report-warnings-errors nil)
 (setq delete-old-versions -1 ); delete excess backup versions silently
@@ -29,6 +33,7 @@
 (setq line-number-display-limit-width 10000)
 (setq gnutls-min-prime-bits 4096)
 (setq uniquify-buffer-name-style 'forward)
+(setq confirm-kill-emacs 'yes-or-no-p)
 
 ;; (setq custom-file "~/.emacs.d/etc/custom.el")
 ;; (load custom-file)			
@@ -61,6 +66,9 @@
 (setq save-interprogram-paste-before-kill t)
 (setq use-dialog-box nil)
 
+(defun close-all-buffers ()
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
 
 (require 'package)
 (setq package-enable-at-startup nil) ; tells emacs not to load any packages before starting up
@@ -269,6 +277,7 @@
   :ensure t
   :config
   (diminish 'undo-tree-mode))
+
 ;; magit
 (use-package magit :ensure t
   :general
@@ -287,9 +296,7 @@
   :ensure t
   :preface (defvar region-fg nil)
   :config
-  (load-theme 'doom-dracula t)
-  (set-face-attribute 'default nil :family "PragmataPro" :width 'normal)
-  (set-face-attribute 'default nil :height 130))
+  (load-theme 'doom-dracula t))
 
 (use-package powerline
   :ensure t
