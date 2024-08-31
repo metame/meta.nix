@@ -382,7 +382,7 @@
 (use-package eglot
   :ensure t
   :hook (((;clojure-mode
-           java-mode haskell-mode c-mode c++-mode zig-mode tuareg reason-mode)
+           java-mode haskell-mode c-mode c++-mode zig-mode tuareg-mode reason-mode)
           . eglot-ensure))
   ;;       ((cider-mode eglot-managed-mode) . eglot-disable-in-cider))
   ;; :preface
