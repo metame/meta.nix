@@ -321,6 +321,7 @@
     (sp-local-pair 'lisp-interaction-mode "'" nil :actions nil)
     (sp-local-pair 'lisp-interaction-mode "`" nil :actions nil)
     (sp-local-pair 'rust-mode "'" nil :actions nil)
+    (sp-local-pair 'tuareg-mode "'" nil :actions nil)
 
     (sp-local-pair 'LaTeX-mode "\"" nil :actions nil)
     (sp-local-pair 'LaTeX-mode "'" nil :actions nil)
