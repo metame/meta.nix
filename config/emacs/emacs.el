@@ -383,7 +383,7 @@
 (use-package eglot
   :ensure t
   :hook (((;clojure-mode
-           java-mode haskell-mode c-mode c++-mode zig-mode tuareg-mode reason-mode)
+           java-mode haskell-mode c-mode c++-mode zig-mode tuareg-mode reason-mode go-mode)
           . eglot-ensure))
   ;;       ((cider-mode eglot-managed-mode) . eglot-disable-in-cider))
   ;; :preface
@@ -419,6 +419,31 @@
   (jarchive-setup))
 
 ;; c lang thing
+
+;; golang things
+(use-package go-mode
+  :ensure t
+  :after eglot)
+
+;; Optional: install eglot-format-buffer as a save hook.
+;; The depth of -10 places this before eglot's willSave notification,
+;; so that that notification reports the actual contents that will be saved.
+(defun eglot-format-buffer-before-save ()
+  (add-hook 'before-save-hook #'eglot-format-buffer -10 t))
+(add-hook 'go-mode-hook #'eglot-format-buffer-before-save)
+
+;; custom hook so eglot can find the go project
+(require 'project)
+
+(defun project-find-go-module (dir)
+  (when-let ((root (locate-dominating-file dir "go.mod")))
+    (cons 'go-module root)))
+
+(cl-defmethod project-root ((project (head go-module)))
+  (cdr project))
+
+(add-hook 'project-find-functions #'project-find-go-module)
+
 
 ;; rust things
 (use-package rustic
