@@ -5,7 +5,7 @@
 # https://github.com/dmmulroy/kickstart.nix/blob/main/module/home-manager.nix#L136-L160
 {
   # add home-manager user settings here
-  # generic: zsh, 
+  # generic: zsh,
   # work: awscli, mysql, docker
   imports = [
     ./emacs.nix

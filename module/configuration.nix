@@ -2,7 +2,6 @@
   # add more system settings here
   nix = {
     settings = {
-      auto-optimise-store = true;
       builders-use-substitutes = true;
       experimental-features = [ "flakes" "nix-command" ];
       substituters = [ "https://nix-community.cachix.org" ];
@@ -12,6 +11,8 @@
       trusted-users = [ "@wheel" ];
       warn-dirty = false;
     };
+    optimise.automatic = true;
   };
   programs.zsh.enable = true;
+  system.stateVersion = 5;
 }

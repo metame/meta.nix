@@ -43,7 +43,7 @@ alias yTtoMP3='youtube-dl --extract-audio --audio-format mp3'
 
 if [ -e /Users/me/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/me/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-alias drs='darwin-rebuild switch --flake ".#x86_64"'
+alias drs='darwin-rebuild switch --flake ".#aarch64"'
 
 # go
 export PATH=$PATH:~/go/bin
@@ -56,7 +56,7 @@ export PATH="$HOME/.jenv/bin:$PATH"
 function init_jenv() { eval "$(jenv init -)" }
 
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # zig
@@ -85,3 +85,5 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 TWITCH_OAUTH='https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=v1biw1x2lzo3o4b0gqqfplm4tmorsf&redirect_uri=http://localhost:3000&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls+channel%3Abot+chat%3Aedit+chat%3Aread'
 
 export EDITOR=vi
+
+alias open_emacs='LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib  open ~/Applications/Home\ Manager\ Apps/Emacs.app'
