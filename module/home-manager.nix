@@ -11,10 +11,26 @@
     ./emacs.nix
   ];
 
+  nixpkgs.config = { allowUnfree = true; };
   # home.packages = with pkgs; [ ack curl ffmpeg ttyd vhs jq tree ];
-  home.packages = with pkgs; [ ack curl ttyd jq tree ];
+  home.packages = with pkgs; [
+    ack
+    curl
+    ttyd
+    jq
+    tree
+    ffmpeg
+    slack
+    dbeaver-bin
+    ripgrep
+    nerd-fonts.jetbrains-mono
+#   aerospace
+  ];
+
   home.stateVersion = "23.11";
   nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ];
+
+  fonts.fontconfig.enable = true;
 
   programs = {
     alacritty = {
@@ -103,7 +119,7 @@
     zsh = {
       enable = true;
       # disabling for now as it takes zsh history (aka could leak work stuff)
-      # enableAutosuggestions = true;
+      autosuggestion.enable = true;
       enableCompletion = true;
       initExtra = "${builtins.readFile ../config/zsh/config.zsh}";
     };

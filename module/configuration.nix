@@ -13,6 +13,5 @@
     };
     optimise.automatic = true;
   };
-  programs.zsh.enable = true;
   system.stateVersion = 5;
 }
