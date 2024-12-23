@@ -87,3 +87,5 @@ TWITCH_OAUTH='https://id.twitch.tv/oauth2/authorize?response_type=token&client_i
 export EDITOR=vi
 
 alias open_emacs='LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib  open ~/Applications/Home\ Manager\ Apps/Emacs.app'
+
+# export PATH=/Users/me/Library/Application\ Support/Herd/bin:$PATH
