@@ -56,7 +56,7 @@ export PATH="$HOME/.jenv/bin:$PATH"
 function init_jenv() { eval "$(jenv init -)" }
 
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
-# . "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # zig
@@ -89,3 +89,11 @@ export EDITOR=vi
 alias open_emacs='LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib  open ~/Applications/Home\ Manager\ Apps/Emacs.app'
 
 # export PATH=/Users/me/Library/Application\ Support/Herd/bin:$PATH
+
+
+function init_fnm() {
+    eval "$(fnm env --use-on-cd --shell zsh)"
+}
+
+## docker
+alias dc='docker compose'

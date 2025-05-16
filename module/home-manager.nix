@@ -15,16 +15,19 @@
   # home.packages = with pkgs; [ ack curl ffmpeg ttyd vhs jq tree ];
   home.packages = with pkgs; [
     ack
+    aerospace
+    awscli2
     curl
-    ttyd
-    jq
-    tree
-    ffmpeg
-    slack
     dbeaver-bin
-    ripgrep
+    ffmpeg
+    jq
+    lazydocker
     nerd-fonts.jetbrains-mono
-#   aerospace
+    pandoc
+    ripgrep
+    slack
+    tree
+    ttyd
   ];
 
   home.stateVersion = "23.11";
@@ -71,16 +74,17 @@
         cob = "checkout -b";
         rb = "branch -m";
         cm = "!git add -A && git commit -m";
+        cu = "!git add -u && git commit -m";
         amend = "commit -a --amend";
         save = "!git add -A && git commit -m 'SAVEPOINT'";
         wip = "commit -am 'WIP' --no-verify";
         undo = "reset HEAD~1 --mixed";
         wipe = "!git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard";
         po = "push origin";
-	      st = "status";
-	      unstage = "reset HEAD --";
-	      ponv = "po --no-verify";
-	      last = "log -1 HEAD";
+        st = "status";
+        unstage = "reset HEAD --";
+        ponv = "po --no-verify";
+        last = "log -1 HEAD";
       };
       extraConfig = {
         init = { defaultBranch = "main"; };
@@ -92,7 +96,7 @@
       enable = true;
       extraLuaConfig = ''
         vim.opt.nu = true
-	      vim.opt.rnu = true
+        vim.opt.rnu = true
 
         require'nvim-treesitter.configs'.setup {
           auto_install = false,
@@ -114,7 +118,11 @@
     };
     tmux = {
       enable = true;
+      keyMode = "vi";
       mouse = true;
+      plugins = with pkgs.tmuxPlugins; [
+        resurrect
+      ];
     };
     zsh = {
       enable = true;
