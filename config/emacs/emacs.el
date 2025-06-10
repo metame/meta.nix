@@ -448,6 +448,11 @@
 ;; rust things
 (use-package rustic
   :ensure t
+  :config
+  (setq rustic-rustfmt-args "+nightly")
+  (setq rustic-lsp-client 'eglot)
+  :custom
+  (rustic-analyzer-command '("rustup" "run" "stable" "rust-analyzer"))
   :general
   (general-define-key :keymaps 'rust-mode-map
                       :states '(normal visual)
@@ -457,7 +462,7 @@
                       ", c t" #'rustic-cargo-test
                       ", c r" #'rustic-cargo-run))
 
-(setq rustic-lsp-client 'eglot)
+
 
 ;; (push 'rustic-clippy flycheck-checkers)
 ;; (remove-hook 'rustic-mode-hook 'flycheck-mode)
