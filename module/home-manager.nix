@@ -21,6 +21,7 @@
     dbeaver-bin
     ffmpeg
     jq
+    yq
     lazydocker
     nerd-fonts.jetbrains-mono
     pandoc
