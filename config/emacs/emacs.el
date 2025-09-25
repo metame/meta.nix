@@ -115,6 +115,15 @@
 (use-package tagedit
 	     :ensure t)
 
+;; flycheck
+(use-package flycheck
+  :ensure t
+  :general
+  (general-define-key
+   :keymaps 'normal
+   "SPC e n" 'flycheck-next-error
+   "SPC e p" 'flycheck-previous-error))
+
 ;; evil
 (use-package evil
   :ensure t
@@ -532,13 +541,6 @@
 ;; (idris-define-evil-keys)
 
 ;; purescript
-(use-package flycheck
-  :ensure t
-  :general
-  (general-define-key
-   :keymaps 'normal
-   "SPC e n" 'flycheck-next-error
-   "SPC e p" 'flycheck-previous-error))
 (use-package purescript-mode
   :ensure t
   :diminish 'purescript-indentation-mode)

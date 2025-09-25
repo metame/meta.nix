@@ -7,7 +7,7 @@
           defaultInitFile = true;
           package = pkgs.emacs.override {
             withTreeSitter = true;
-            withNativeCompilation = true;
+	    withNativeCompilation = true;
         };
       });
     };

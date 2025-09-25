@@ -130,7 +130,7 @@
       # disabling for now as it takes zsh history (aka could leak work stuff)
       autosuggestion.enable = true;
       enableCompletion = true;
-      initExtra = "${builtins.readFile ../config/zsh/config.zsh}";
+      initContent = "${builtins.readFile ../config/zsh/config.zsh}";
     };
   };
 }
