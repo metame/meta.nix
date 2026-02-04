@@ -409,7 +409,9 @@
                 '((haskell
                    (plugin
                     (stan
-                     (globalOn . :json-false))))))
+                     (globalOn . :json-false))))
+                  (rust-analyzer
+                   (cargo features "all"))))
   :custom
   (eglot-autoshutdown t)
   :general
@@ -470,20 +472,6 @@
                       ", c b" #'rustic-cargo-build
                       ", c t" #'rustic-cargo-test
                       ", c r" #'rustic-cargo-run))
-
-
-
-;; (push 'rustic-clippy flycheck-checkers)
-;; (remove-hook 'rustic-mode-hook 'flycheck-mode)
-
-;; (use-package cargo
-  ;; :ensure t
-  ;; :general
-  ;; (general-define-key :keymaps 'rust-mode-map
-                      ;; :states '(normal visual)
-                      ;; ", c b" 'cargo-process-build
-                      ;; ", c t" 'cargo-process-test
-                      ;; ", c r" 'cargo-process-run))
 
 ;; zig
 (use-package zig-mode
