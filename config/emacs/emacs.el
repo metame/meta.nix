@@ -409,9 +409,7 @@
                 '((haskell
                    (plugin
                     (stan
-                     (globalOn . :json-false))))
-                  (rust-analyzer
-                   (cargo features "all"))))
+                     (globalOn . :json-false))))))
   :custom
   (eglot-autoshutdown t)
   :general

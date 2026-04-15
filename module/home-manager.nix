@@ -29,6 +29,7 @@
     slack
     tree
     ttyd
+    uv
   ];
 
   home.stateVersion = "23.11";
