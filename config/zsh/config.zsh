@@ -56,7 +56,7 @@ export PATH="$HOME/.jenv/bin:$PATH"
 function init_jenv() { eval "$(jenv init -)" }
 
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # zig

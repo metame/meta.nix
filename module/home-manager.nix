@@ -17,16 +17,22 @@
     ack
     aerospace
     awscli2
+    binutils
+    coreutils
     curl
-    dbeaver-bin
     ffmpeg
+    findutils
+    gawk
+    gettext
+    gnupg
+    gnugrep
     jq
-    yq
+    yq-go
     lazydocker
     nerd-fonts.jetbrains-mono
     pandoc
+    python3
     ripgrep
-    slack
     tree
     ttyd
     uv
@@ -39,7 +45,7 @@
 
   programs = {
     alacritty = {
-      enable = true;
+      enable = false;
       settings = {
         font = {
           normal = {
@@ -69,48 +75,39 @@
     };
     git = {
       enable = true;
-      aliases = {
-        co = "checkout";
-        ec = "config --global -e";
-        ppr = "pull --rebase --prune";
-        cob = "checkout -b";
-        rb = "branch -m";
-        cm = "!git add -A && git commit -m";
-        cu = "!git add -u && git commit -m";
-        amend = "commit -a --amend";
-        save = "!git add -A && git commit -m 'SAVEPOINT'";
-        wip = "commit -am 'WIP' --no-verify";
-        undo = "reset HEAD~1 --mixed";
-        wipe = "!git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard";
-        po = "push origin";
-        st = "status";
-        unstage = "reset HEAD --";
-        ponv = "po --no-verify";
-        last = "log -1 HEAD";
-      };
-      extraConfig = {
+      settings = {
         init = { defaultBranch = "main"; };
         push = { autoSetupRemote = true; };
         rerere = { enabled = true; };
+        alias = {
+          co = "checkout";
+          ec = "config --global -e";
+          ppr = "pull --rebase --prune";
+          cob = "checkout -b";
+          rb = "branch -m";
+          cm = "!git add -A && git commit -m";
+          cu = "!git add -u && git commit -m";
+          amend = "commit -a --amend";
+          save = "!git add -A && git commit -m 'SAVEPOINT'";
+          wip = "commit -am 'WIP' --no-verify";
+          undo = "reset HEAD~1 --mixed";
+          wipe = "!git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard";
+          po = "push origin";
+          st = "status";
+          unstage = "reset HEAD --";
+          ponv = "po --no-verify";
+          last = "log -1 HEAD";
+	};
       };
     };
     neovim = {
       enable = true;
-      extraLuaConfig = ''
+      initLua = ''
         vim.opt.nu = true
         vim.opt.rnu = true
-
-        require'nvim-treesitter.configs'.setup {
-          auto_install = false,
-          highlight = {
-            enable = true,
-          },
-        }
       '';
-      plugins = with pkgs.vimPlugins; [
-        nvim-treesitter
-        nvim-treesitter-parsers.haskell
-      ];
+      withRuby = false;
+      withPython3 = false;
     };
     starship = {
       enable = true;
@@ -128,7 +125,6 @@
     };
     zsh = {
       enable = true;
-      # disabling for now as it takes zsh history (aka could leak work stuff)
       autosuggestion.enable = true;
       enableCompletion = true;
       initContent = "${builtins.readFile ../config/zsh/config.zsh}";

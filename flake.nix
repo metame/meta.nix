@@ -12,7 +12,7 @@
   };
   outputs = inputs@{ self, darwin, home-manager, nixpkgs, ... }:
     let
-      username = "michaelerwin";
+      username = "michael.erwin";
 
       darwin-system = import ./system/darwin.nix { inherit inputs username; };
     in
