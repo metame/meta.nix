@@ -46,6 +46,9 @@ if [ -e /Users/me/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/me/.nix-pro
 alias drs='darwin-rebuild switch --flake ".#aarch64"'
 
 # go
+# nix-darwin's /etc/zprofile drops Apple's path_helper call, so /etc/paths.d/go
+# is never read -- add the toolchain explicitly.
+export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
 
 # clojure
@@ -97,3 +100,7 @@ function init_fnm() {
 
 ## docker
 alias dc='docker compose'
+
+## gcp
+source ~/google-cloud-sdk/path.zsh.inc
+source ~/google-cloud-sdk/completion.zsh.inc

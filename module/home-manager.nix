@@ -1,18 +1,11 @@
 { inputs, pkgs, ... }:
 
-# manage emacs packages with nix
-# port zsh config to nix using pattern in dillon's files
-# https://github.com/dmmulroy/kickstart.nix/blob/main/module/home-manager.nix#L136-L160
 {
-  # add home-manager user settings here
-  # generic: zsh,
-  # work: awscli, mysql, docker
   imports = [
     ./emacs.nix
   ];
 
   nixpkgs.config = { allowUnfree = true; };
-  # home.packages = with pkgs; [ ack curl ffmpeg ttyd vhs jq tree ];
   home.packages = with pkgs; [
     ack
     aerospace
@@ -128,6 +121,9 @@
       autosuggestion.enable = true;
       enableCompletion = true;
       initContent = "${builtins.readFile ../config/zsh/config.zsh}";
+      loginExtra = ''
+        eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+      '';
     };
   };
 }
